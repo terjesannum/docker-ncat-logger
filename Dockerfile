@@ -1,4 +1,4 @@
-FROM alpine:3.6
+FROM alpine:3.10.3
 LABEL maintainer "terje@offpiste.org"
 
 RUN apk add --update nmap-ncat && rm -rf /var/cache/apk/*
