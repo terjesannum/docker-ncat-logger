@@ -1,8 +1,9 @@
-FROM alpine:3.10.3
-LABEL maintainer "terje@offpiste.org"
+FROM alpine:3.15.0
+LABEL org.opencontainers.image.authors="Terje Sannum <terje@offpiste.org>" \
+      org.opencontainers.image.source="https://github.com/terjesannum/docker-ncat-logger"
 
 RUN apk add --update nmap-ncat && rm -rf /var/cache/apk/*
 
-EXPOSE 4000
+ENV PORT 4000
 
-CMD ["ncat", "-k", "-l", "4000"]
+CMD ["sh", "-c", "ncat -k -l $PORT"]
